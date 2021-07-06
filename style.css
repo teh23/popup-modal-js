@@ -16,7 +16,7 @@ h1 {
     height: 100vh;
 }
 .modal {
-    visibility: hidden;
+    display: flex;
     top: 0;
     left: 0;
     width: 100%;
@@ -25,20 +25,21 @@ h1 {
     opacity: 1;
     position: absolute;
     z-index: 1001;
-    display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 .modal-content {
-    visibility: hidden;
+    animation-duration: 0.25s;
+    animation-name: slidein;
     display: flex;
     flex-flow: column;
     justify-content: space-evenly;
     align-items: center;
     height: auto;
     width: 500px;
-
+    z-index: 1002;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     padding: 2em;
@@ -63,4 +64,16 @@ button {
     color: white;
 
     outline: none;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        overflow: hidden;
+    }
+
+    to {
+        margin-left: 0%;
+        overflow: hidden;
+    }
 }
